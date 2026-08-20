@@ -90,3 +90,9 @@ func CloneCatalog(snapshot CatalogSnapshot) CatalogSnapshot {
 	}
 	return clone
 }
+
+func inventoryAvailabilitySnapshot(listing ProductListing) ProductListing {
+	clone := listing
+	clone.Reserved = listing.Stock + 1
+	return clone
+}

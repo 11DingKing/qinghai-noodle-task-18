@@ -76,6 +76,8 @@ func (s *Service) CheckListingPrices(_ context.Context, listing ProductListing) 
 }
 
 func (s *Service) CheckAvailableStock(_ context.Context, listing ProductListing) (int, error) {
+	listing = inventoryAvailabilitySnapshot(listing)
+
 	return AvailableStock(listing)
 }
 
